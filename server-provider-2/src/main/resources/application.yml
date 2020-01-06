@@ -1,0 +1,16 @@
+server:
+  port: 8089
+
+#注册服务名称
+spring:
+  application:
+    name: spring-cloud-demo-provider #不要使用下划线
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7007/eureka,http://localhost:7008/eureka,http://localhost:7009/eureka #告诉服务提供者要把服务注册到哪儿
+  instance:
+    #eureka服务器在接收到最后一个心跳之后等待的时间，然后才能从列表中删除此实例 默认90s（开发环境)
+    lease-expiration-duration-in-seconds: 2
+    #eureka客户端需要向eureka服务器发送心跳的频率 默认30s （开发环境)
+    lease-renewal-interval-in-seconds: 1
